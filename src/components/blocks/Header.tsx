@@ -1,0 +1,71 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+export const Header: React.FC = () => {
+  return (
+    <header className="bg-white border-b border-secondary-200/40 sticky top-0 z-50">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-16 py-8 flex items-center justify-between">
+        {/* Logo */}
+        <Link to="/" className="text-[32px] font-bold text-primary-500 tracking-tight">
+          MORENT
+        </Link>
+
+        {/* Search Bar */}
+        <div className="hidden md:flex items-center flex-1 max-w-[492px] mx-8">
+          <div className="relative flex-1">
+            <svg
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-secondary-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <input
+              type="text"
+              placeholder="Search something here"
+              className="w-full pl-12 pr-12 py-3 rounded-full border border-secondary-200/40 text-sm placeholder:text-secondary-300 focus:outline-none focus:border-primary-500"
+            />
+            <button className="absolute right-4 top-1/2 -translate-y-1/2">
+              <svg className="w-6 h-6 text-secondary-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Profile & Notifications */}
+        <div className="flex items-center gap-5">
+          <button className="w-11 h-11 rounded-full border border-secondary-200/40 flex items-center justify-center hover:bg-secondary-100 transition-colors">
+            <svg className="w-6 h-6 text-secondary-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+          <button className="relative w-11 h-11 rounded-full border border-secondary-200/40 flex items-center justify-center hover:bg-secondary-100 transition-colors">
+            <svg className="w-6 h-6 text-secondary-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/>
+            </svg>
+            <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-error rounded-full"></span>
+          </button>
+          <button className="w-11 h-11 rounded-full border border-secondary-200/40 flex items-center justify-center hover:bg-secondary-100 transition-colors">
+            <svg className="w-6 h-6 text-secondary-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+          </button>
+          <Link to="/admin" className="w-11 h-11 rounded-full overflow-hidden">
+            <img
+              src="./assets/images/avatar.png"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+};

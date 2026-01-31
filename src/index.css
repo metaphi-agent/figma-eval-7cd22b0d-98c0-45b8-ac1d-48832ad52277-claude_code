@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Primary Colors */
+  --color-primary-500: #3563E9;
+  --color-primary-600: #264BC8;
+  --color-primary-100: #D6E4FD;
+  --color-primary-50: #F6F7F9;
+
+  /* Secondary Colors */
+  --color-secondary-500: #1A202C;
+  --color-secondary-400: #596780;
+  --color-secondary-300: #90A3BF;
+  --color-secondary-200: #C3D4E9;
+  --color-secondary-100: #E0E9F4;
+
+  /* Information */
+  --color-info-500: #54A6FF;
+
+  /* Success/Error/Warning */
+  --color-success: #7FB519;
+  --color-error: #FF4423;
+  --color-warning: #FFC73A;
+
+  /* Background */
+  --color-bg-primary: #F6F7F9;
+  --color-bg-secondary: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('https://fonts.gstatic.com/s/plusjakartasans/v8/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--color-bg-primary);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary-400);
+}

@@ -1,0 +1,89 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import type { Car } from '../../data/cars';
+import { Button } from '../ui/Button';
+
+interface CarCardProps {
+  car: Car;
+}
+
+export const CarCard: React.FC<CarCardProps> = ({ car }) => {
+  const [isFavorite, setIsFavorite] = useState(car.isFavorite);
+
+  return (
+    <div className="bg-white rounded-[10px] p-4 lg:p-6 flex flex-col h-full">
+      {/* Header */}
+      <div className="flex justify-between items-start mb-1">
+        <div>
+          <h3 className="text-xl font-bold text-secondary-500">{car.name}</h3>
+          <p className="text-sm font-medium text-secondary-300">{car.type}</p>
+        </div>
+        <button
+          onClick={() => setIsFavorite(!isFavorite)}
+          className="text-secondary-300 hover:scale-110 transition-transform"
+        >
+          {isFavorite ? (
+            <svg className="w-6 h-6 text-error" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Car Image */}
+      <div className="flex-1 flex items-center justify-center py-8 relative">
+        <img
+          src={car.image}
+          alt={car.name}
+          className="max-w-full max-h-[120px] object-contain"
+          loading="lazy"
+        />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent" />
+      </div>
+
+      {/* Specifications */}
+      <div className="flex items-center gap-4 mb-6 text-secondary-300">
+        <div className="flex items-center gap-1.5">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM12 10H6V5h6v5zm6 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
+          </svg>
+          <span className="text-sm font-medium">{car.gasoline}</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>
+          </svg>
+          <span className="text-sm font-medium">{car.transmission}</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.5 12c1.38 0 2.49-1.12 2.49-2.5S17.88 7 16.5 7C15.12 7 14 8.12 14 9.5s1.12 2.5 2.5 2.5zM9 11c1.66 0 2.99-1.34 2.99-3S10.66 5 9 5C7.34 5 6 6.34 6 8s1.34 3 3 3zm7.5 3c-1.83 0-5.5.92-5.5 2.75V19h11v-2.25c0-1.83-3.67-2.75-5.5-2.75zM9 13c-2.33 0-7 1.17-7 3.5V19h7v-2.25c0-.85.33-2.34 2.37-3.47C10.5 13.1 9.66 13 9 13z"/>
+          </svg>
+          <span className="text-sm font-medium">{car.capacity}</span>
+        </div>
+      </div>
+
+      {/* Price & Button */}
+      <div className="flex items-center justify-between">
+        <div>
+          <span className="text-xl font-bold text-secondary-500">
+            ${car.price.toFixed(2)}/
+          </span>
+          <span className="text-sm text-secondary-300">day</span>
+          {car.originalPrice && (
+            <p className="text-sm text-secondary-300 line-through">
+              ${car.originalPrice.toFixed(2)}
+            </p>
+          )}
+        </div>
+        <Link to={`/detail/${car.id}`}>
+          <Button size="md">Rent Now</Button>
+        </Link>
+      </div>
+    </div>
+  );
+};

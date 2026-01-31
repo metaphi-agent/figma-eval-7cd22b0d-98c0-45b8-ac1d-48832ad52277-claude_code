@@ -1,0 +1,11 @@
+{
+  "figma_file_key": "p0TUYoS6pIM3cWKCCSnhpl",
+  "total_frames": 5,
+  "frames": [
+    {"name": "Home", "node_id": "44:14919", "gt_image": "Home.png", "target_route": "/"},
+    {"name": "Category", "node_id": "44:15417", "gt_image": "Category.png", "target_route": "/category"},
+    {"name": "Detail", "node_id": "44:15823", "gt_image": "Detail.png", "target_route": "/detail/:id"},
+    {"name": "Payment", "node_id": "44:16236", "gt_image": "Payment.png", "target_route": "/payment"},
+    {"name": "Dashboard", "node_id": "44:16499", "gt_image": "Dashboard.png", "target_route": "/admin"}
+  ]
+}
