@@ -6,13 +6,17 @@ interface HeroBannerProps {
   variant?: 'blue' | 'light-blue';
   title: string;
   subtitle: string;
+  carImage?: string;
 }
 
 export const HeroBanner: React.FC<HeroBannerProps> = ({
   variant = 'light-blue',
   title,
-  subtitle
+  subtitle,
+  carImage
 }) => {
+  const defaultImage = variant === 'blue' ? './assets/images/hero-car-2.png' : './assets/images/hero-car.png';
+  const heroCarImage = carImage || defaultImage;
   const bgColor = variant === 'blue' ? 'bg-primary-500' : 'bg-info-500';
 
   return (
@@ -53,7 +57,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       {/* Car Image */}
       <div className="absolute right-4 bottom-0">
         <img
-          src="./assets/images/hero-car.png"
+          src={heroCarImage}
           alt="Car"
           className="w-[340px] h-auto object-contain"
         />
