@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
@@ -20,17 +20,15 @@ const Loading: React.FC = () => (
 
 function App() {
   return (
-    <Router>
-      <Suspense fallback={<Loading />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/category" element={<Category />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/admin" element={<Dashboard />} />
-        </Routes>
-      </Suspense>
-    </Router>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/category" element={<Category />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/admin" element={<Dashboard />} />
+      </Routes>
+    </Suspense>
   );
 }
 
